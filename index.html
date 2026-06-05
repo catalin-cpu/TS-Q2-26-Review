@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Touch Stay — Q2/26 Strategic Alignment</title>
+<style>
+  :root{
+    --ink:#1a1d21; --muted:#6b7280; --line:#e5e7eb; --bg:#f7f8fa; --card:#ffffff;
+    --green:#177245; --green-bg:#e8f5ee; --red:#c0392b; --red-bg:#fdecea;
+    --orange:#b35900; --orange-bg:#fff4e5; --blue:#1d5fbf; --blue-bg:#eaf1fb;
+    --gray-bg:#f1f2f4; --accent:#0d9488;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;font-size:15px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px 80px}
+  header.hero{background:linear-gradient(135deg,#0f2e2a 0%,#114b43 60%,#0d9488 100%);color:#fff;padding:36px 0 28px;margin-bottom:28px}
+  header.hero .wrap{padding-bottom:0}
+  .hero h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .hero .sub{opacity:.85;margin-top:6px;font-size:14px}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:3px 11px;font-size:12px}
+  nav.toc{position:fixed;top:0;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);z-index:50}
+  header.hero{margin-top:44px}
+  nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:0 24px}
+  nav.toc a{padding:11px 13px;font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+  nav.toc a:hover{color:var(--ink)} nav.toc a.hot{color:var(--accent);border-bottom-color:var(--accent)}
+  section{margin-top:36px;scroll-margin-top:56px}
+  h2{font-size:20px;font-weight:800;letter-spacing:-.01em;display:flex;align-items:center;gap:9px;margin-bottom:4px}
+  h2 .n{background:var(--ink);color:#fff;border-radius:8px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+  .kicker{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+  .grid{display:grid;gap:12px}
+  .g4{grid-template-columns:repeat(4,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}}
+  .kpi{padding:14px 16px}
+  .kpi .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .kpi .val{font-size:24px;font-weight:800;margin-top:3px;letter-spacing:-.02em}
+  .kpi .ctx{font-size:12.5px;margin-top:3px;color:var(--muted)}
+  .good{color:var(--green)} .bad{color:var(--red)} .warn{color:var(--orange)}
+  .pill{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px;vertical-align:1px}
+  .pill.g{background:var(--green-bg);color:var(--green)} .pill.r{background:var(--red-bg);color:var(--red)}
+  .pill.o{background:var(--orange-bg);color:var(--orange)} .pill.b{background:var(--blue-bg);color:var(--blue)} .pill.gr{background:var(--gray-bg);color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:8px 10px;border-bottom:2px solid var(--line)}
+  td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .num{font-variant-numeric:tabular-nums}
+  .bar{height:9px;border-radius:5px;background:var(--gray-bg);position:relative;min-width:90px}
+  .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+  .bar i.g{background:#16a34a}.bar i.r{background:#dc2626}.bar i.b{background:#2563eb}.bar i.o{background:#ea8a00}
+  details{border:1px solid var(--line);border-radius:10px;background:#fff;margin-top:10px}
+  details summary{cursor:pointer;padding:11px 16px;font-weight:700;font-size:13.5px;color:#374151;list-style:none;display:flex;align-items:center;gap:8px}
+  details summary::before{content:"▸";color:var(--muted);transition:transform .15s}
+  details[open] summary::before{transform:rotate(90deg)}
+  details .inner{padding:4px 18px 16px;border-top:1px solid var(--line)}
+  .tl{border-left:4px solid var(--accent);padding-left:14px;margin:12px 0}
+  .tl b.h{font-size:14.5px}
+  .tl p{font-size:13.5px;color:#374151;margin-top:2px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.two{grid-template-columns:1fr}}
+  ul.cl{list-style:none} ul.cl li{padding:5px 0 5px 22px;position:relative;font-size:13.5px}
+  ul.cl li::before{position:absolute;left:0}
+  ul.cl li.ok::before{content:"✅"} ul.cl li.no::before{content:"❌"} ul.cl li.run::before{content:"🔄"} ul.cl li.dot::before{content:"•";color:var(--muted);font-weight:800}
+  .ask{background:#10231f;color:#eef6f4;border-radius:12px;padding:18px 22px;margin-top:16px}
+  .ask b{color:#7ce0c3}
+  .prio{border:1px solid var(--line);border-left-width:5px;border-radius:10px;background:#fff;padding:14px 18px;margin-top:10px}
+  .p1{border-left-color:#d4a017}.p2{border-left-color:#8a8f98}.p3{border-left-color:#b46a3b}.p4{border-left-color:#1d5fbf}.p5{border-left-color:#6b7280}
+  .prio h3{font-size:15px;font-weight:800}
+  .prio .why{font-size:13px;color:var(--muted);margin:3px 0 8px}
+  .prio ul{margin-left:18px;font-size:13.5px}
+  .prio ul li{margin:4px 0}
+  .foot{margin-top:46px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
+  .src{font-size:12px;color:var(--muted);margin-top:8px}
+  a{color:var(--blue)}
+  .note{font-size:12.5px;color:var(--muted)}
+  .sec-rule{height:1px;background:var(--line);margin-top:8px;margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>🛖 Touch Stay — Q2/26 Strategic Alignment</h1>
+    <div class="sub">Mon Jun 15, 2026 · 14:00–15:30 EEST · Catalin Adam (CPO) · Data: Jan–May actuals closed (incl. G3 &amp; web) · report regenerated Jun 5</div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#tldr" class="hot">TL;DR</a>
+  <a href="#numbers">Q2 Business Numbers</a>
+  <a href="#product">Q2 Product Hi/Lo</a>
+  <a href="#roadmap">Q3 Roadmap</a>
+  <a href="#budget">Budget Discussion</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ============ TLDR ============ -->
+<section id="tldr">
+  <h2><span class="n">1</span> TL;DR</h2>
+  <div class="kicker">Five facts, one decision. Everything below is supporting detail.</div>
+
+  <div class="grid g4">
+    <div class="card kpi"><div class="lbl">EBITDA Q2 TD</div><div class="val good">$101.8k</div><div class="ctx">vs $27.5k Q1 · margin 3.8% → <b>21.1%</b> · still <span class="bad">−14.2% vs plan</span></div></div>
+    <div class="card kpi"><div class="lbl">MRR (end May)</div><div class="val">$242.5k</div><div class="ctx">grew every Q2 month · May +1.16% best of 2026 · <span class="bad">−5.7% vs plan</span>, gap widening</div></div>
+    <div class="card kpi"><div class="lbl">MRR net movement</div><div class="val good">2.4×&nbsp;Q1</div><div class="ctx">tiered pricing: new-user ARPU <b>+25%</b> · upgrades +18% · reactivations +120%</div></div>
+    <div class="card kpi"><div class="lbl">Sign-ups YoY (May)</div><div class="val bad">−47%</div><div class="ctx">G1 free-fall by cohort: Jan −16% → Apr −33% → <b>May −47%</b> (612 vs 1,153) · web traffic −13.8% vs Q1</div></div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="tl"><b class="h">1 · EBITDA recovered strongly vs Q1, but is still below plan — and the entire shortfall is revenue, not costs.</b>
+      <p>EBITDA $101.8k Q2 TD vs $118.6k plan. Costs already run $8.8k <i>below</i> plan (−$39.8k/mo vs Q1) — MRR is the only gap to plan.</p></div>
+    <div class="tl"><b class="h">2 · The growth engine works; the volume doesn't — sign-ups are in free fall YoY.</b>
+      <p>Conversion is genuinely improving (cohorted trial rate 63% → 74% across 2026) and cohort data confirms May's low paid count was timing — <b>+70–86 May-cohort G4s land in June</b>.</p>
+      <p style="margin-top:5px">The structural problem is G1 volume, and it's accelerating: Jan −16% → Apr −33% → <b class="bad">May −47% YoY</b> (612 vs 1,153). Better conversion has been masking the collapse.</p></div>
+    <div class="tl"><b class="h">3 · Churn — the bad: gross MRR churn ~21% worse than Q1. The good: upgrade &amp; churn-prevention work made May churn-neutral.</b>
+      <p><span class="bad"><b>Bad:</b></span> gross MRR churn (monthly avg, Q2 TD) rose 1.59% → 1.90%, concentrated in large accounts — ≥£100/mo = 3% of churned logos but <b>32% of churned MRR</b> (~9–10 nameable accounts; a CS save motion, not a volume problem).</p>
+      <p style="margin-top:5px"><span class="good"><b>Good:</b></span> upgrades +18%, reactivations +120% and easing downgrades pushed net MRR churn 0.84% → 0.57% — and <b>May closed churn-neutral (−0.01%)</b>.</p></div>
+    <div class="tl"><b class="h">4 · Q2 delivered the pricing &amp; analytics foundation; the remaining in-dev projects close before Q2 ends.</b>
+      <p>Shipped: tiered pricing rollout, onboarding widget (A/B success), A/B + CX analytics infra. Closing by end of Q2: Hub Redesign (Jun 22), Legacy Max, SMS Pricing, Webhooks P2; 10DLC launches w/c Jun 8. <b>The price: Tier 3 was sacrificed.</b></p></div>
+    <div class="tl"><b class="h">5 · Q3 = Free Tier + Guidebook Redesign.</b>
+      <p>Market-share bet (Free as acquisition engine) + retention bet (moment-based guest experience no STR competitor has). 14 PRDs ready. Lower capacity (vacations).</p></div>
+    <div class="note" style="margin-top:10px"><b>Decision for this meeting:</b> H2 MRR target replan — recommendation in <a href="#budget">Budget Discussion ↓</a></div>
+  </div>
+</section>
+
+<!-- ============ Q2 BUSINESS NUMBERS ============ -->
+<section id="numbers">
+  <h2><span class="n">2</span> Q2 Business Numbers</h2>
+  <div class="kicker">Q2 to date (Jan–May actuals, all closed incl. G3 &amp; web) · source: <a href="https://ts-q2-kpi-analysis.vercel.app/">Q2 vs Q1 KPI analysis</a>, regenerated Jun 5</div>
+
+  <div class="two">
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:8px">📈 MRR by month</h3>
+      <table>
+        <tr><th>Month</th><th>MRR</th><th>MoM</th><th style="width:34%"></th></tr>
+        <tr><td>Jan</td><td class="num">$237.4k</td><td class="good num">+0.71%</td><td><div class="bar"><i class="b" style="width:37%"></i></div></td></tr>
+        <tr><td>Feb</td><td class="num">$236.0k</td><td class="bad num">−0.58%</td><td><div class="bar"><i class="b" style="width:30%"></i></div></td></tr>
+        <tr><td>Mar</td><td class="num">$238.3k</td><td class="good num">+0.97%</td><td><div class="bar"><i class="b" style="width:42%"></i></div></td></tr>
+        <tr><td>Apr</td><td class="num">$239.7k</td><td class="good num">+0.60%</td><td><div class="bar"><i class="b" style="width:49%"></i></div></td></tr>
+        <tr><td><b>May</b></td><td class="num"><b>$242.5k</b></td><td class="good num"><b>+1.16%</b> ⭐</td><td><div class="bar"><i class="b" style="width:63%"></i></div></td></tr>
+      </table>
+      <div class="note" style="margin-top:8px">Bar = growth above $230k baseline. May = best month of 2026; user base 9,876 (+0.8%), ARPU $24.6 (year high).</div>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:8px">🆚 Q1 → Q2 vs plan</h3>
+      <table>
+        <tr><th></th><th>Q1</th><th>Q2 TD</th><th>vs plan</th></tr>
+        <tr><td>MRR (end)</td><td class="num">$238.3k</td><td class="num"><b>$242.5k</b></td><td class="warn">−5.7% ($257.1k) — widening</td></tr>
+        <tr><td>EBITDA / mo</td><td class="num">$9.2k (3.8%)</td><td class="num"><b>$50.9k (21.1%)</b></td><td class="warn">−14.2% — gap narrowing</td></tr>
+        <tr><td>Costs / mo</td><td class="num">$230.4k</td><td class="num"><b>$190.6k</b></td><td class="good">$8.8k below plan</td></tr>
+      </table>
+      <div class="note" style="margin-top:8px">95% of the EBITDA recovery is cost-driven (−$39.8k/mo). <b>The plan miss is all revenue.</b> Margin vs plan: Apr −2.9pp → May −1.5pp.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <h3 style="font-size:14px;margin-bottom:8px">🔀 MRR movement — monthly averages, Q2 vs Q1</h3>
+    <table>
+      <tr><th>Component</th><th style="width:16%">Q2 $/mo</th><th style="width:16%"></th><th>vs Q1</th></tr>
+      <tr><td>New MRR</td><td class="good num"><b>+$3.5k</b></td><td><div class="bar"><i class="g" style="width:70%"></i></div></td><td class="good">+21% — new-user ARPU +25% ($16.7→$20.9; Apr peak $22.9, first full tiered-pricing month)</td></tr>
+      <tr><td>Upgrades</td><td class="good num"><b>+$2.7k</b></td><td><div class="bar"><i class="g" style="width:54%"></i></div></td><td class="good">+18%</td></tr>
+      <tr><td>Reactivation</td><td class="good num"><b>+$1.7k</b></td><td><div class="bar"><i class="g" style="width:34%"></i></div></td><td class="good">+120% — May $2.4k = year high</td></tr>
+      <tr><td>Downgrades</td><td class="bad num">−$1.2k</td><td><div class="bar"><i class="r" style="width:24%"></i></div></td><td class="good">+6% better — May −$942 = year low</td></tr>
+      <tr><td>Churned MRR</td><td class="bad num"><b>−$4.6k</b></td><td><div class="bar"><i class="r" style="width:90%"></i></div></td><td class="bad">−21% worse</td></tr>
+      <tr><td><b>Net movement</b></td><td class="num"><b>+$2.1k</b></td><td><div class="bar"><i class="g" style="width:42%"></i></div></td><td><b>≈ 2.4× Q1</b> ($4,200 vs $2,592 quarter total)</td></tr>
+    </table>
+  </div>
+
+  <div class="two" style="margin-top:12px">
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:8px">🚪 Churn — rates</h3>
+      <table>
+        <tr><th>Monthly avg</th><th>Q1</th><th>Q2 TD</th><th></th></tr>
+        <tr><td>Logo churn</td><td class="num">1.47%</td><td class="num"><b>1.74%</b></td><td><span class="pill r">worse</span></td></tr>
+        <tr><td>Gross MRR churn</td><td class="num">1.59%</td><td class="num"><b>1.90%</b></td><td><span class="pill r">+21% worse</span></td></tr>
+        <tr><td>Net MRR churn</td><td class="num">0.84%</td><td class="num"><b>0.57%</b></td><td><span class="pill g">better · May churn-neutral (−0.01%)</span></td></tr>
+        <tr><td>Churned / reactivated</td><td class="num">144 / 33</td><td class="num"><b>172 / 43</b></td><td><span class="pill o">+19% / +31%</span></td></tr>
+      </table>
+      <details><summary>Why they leave (cancel/downgrade modal, May 11–Jun 3)</summary><div class="inner">
+        <ul class="cl">
+          <li class="dot"><b>Cancel (90 logos):</b> 47% no longer in STR · 19% switching tool · 17% guests not using · 9% building own (incl. AI-coded)</li>
+          <li class="dot"><b>Downgrade (50 logos):</b> 82% fewer properties on market</li>
+        </ul>
+      </div></details>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:14px;margin-bottom:8px">⚠️ Churn is concentrated in large accounts</h3>
+      <table>
+        <tr><th>Account size</th><th>% of accounts</th><th>% of churned MRR</th></tr>
+        <tr><td>&lt;£10</td><td class="num">68%</td><td class="num">27%</td></tr>
+        <tr><td>£10–25</td><td class="num">20%</td><td class="num">17%</td></tr>
+        <tr><td>£25–50</td><td class="num">6%</td><td class="num">11%</td></tr>
+        <tr><td>£50–100</td><td class="num">4%</td><td class="num">14%</td></tr>
+        <tr><td class="bad"><b>≥£100</b></td><td class="bad num"><b>3%</b></td><td class="bad num"><b>32% ⚠️</b></td></tr>
+      </table>
+      <details><summary>What this means</summary><div class="inner">
+        <ul class="cl">
+          <li class="dot"><b>24% of raw churn isn't churn</b> — Stripe renewals/plan changes look like cancellations; true churn = ~76% of raw.</li>
+          <li class="dot"><b>Top-10 true-churn events = 33% of churned MRR</b> (largest −£396/mo). Losses are concentrated, not spread.</li>
+          <li class="dot"><b>So what:</b> in money terms churn is a short, nameable list of ~9–10 large accounts per period — individually addressable (CS save motion, exit interviews, win-backs). It also stress-tests the "product for small POs, Sales/CS for large POs" split: large-PO retention is the motion underperforming.</li>
+        </ul>
+      </div></details>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <h3 style="font-size:14px;margin-bottom:8px">🔻 Acquisition funnel (per month)</h3>
+    <table>
+      <tr><th>Stage</th><th>Q1</th><th>Q2 TD</th><th style="width:20%"></th><th>Δ</th></tr>
+      <tr><td>Web users (excl. guides)</td><td class="num">37,189</td><td class="num"><b>32,066</b></td><td></td><td class="bad">−13.8% · May 29.3k = 2026 low · sign-up rate steady ~2% (+0.07pp)</td></tr>
+      <tr><td>G1 — Sign-ups</td><td class="num">726</td><td class="num"><b>649</b></td><td><div class="bar"><i class="b" style="width:100%"></i></div></td><td class="bad">−10.7% · May 612</td></tr>
+      <tr><td>G3 — Trials</td><td class="num">518 (71.4%)</td><td class="num"><b>522</b> (80.4%)</td><td><div class="bar"><i class="b" style="width:80%"></i></div></td><td class="good">+0.6% — held · trial-start +9.0pp; May 86.1% = record</td></tr>
+      <tr><td>G4 — New paid</td><td class="num">170 (32.9%)</td><td class="num"><b>166</b> (31.7%)</td><td><div class="bar"><i class="b" style="width:26%"></i></div></td><td class="warn">−2.8% · May reads 28.5% / 150 paid — G4s log by event date, so May's trials land in June</td></tr>
+      <tr><td>Sign-up → paid</td><td class="num">23.5%</td><td class="num"><b>25.5%</b></td><td></td><td class="good">+2.0pp</td></tr>
+    </table>
+    <div class="note" style="margin-top:8px"><b class="warn">Read:</b> rates above are event-based per calendar month — a month's G4s come largely from the prior weeks' trials. The cohort view below settles the open questions.</div>
+    <div class="note" style="margin-top:6px"><b>Data basis:</b> all months actual (Jan–May closed, incl. G3 &amp; web data) — no June numbers or projections. Report regenerated Jun 5 with cohort analysis.</div>
+  </div>
+
+  <details style="margin-top:12px"><summary>🧬 Cohort view — settles the timing question, exposes the volume problem</summary><div class="inner">
+    <div class="two" style="margin-top:10px">
+      <div>
+        <b style="font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)">G1 sign-ups YoY (same month)</b>
+        <table style="margin-top:6px">
+          <tr><th>Month</th><th>2025</th><th>2026</th><th>Δ</th></tr>
+          <tr><td>January</td><td class="num">871</td><td class="num">735</td><td class="bad num">−16%</td></tr>
+          <tr><td>April</td><td class="num">1,023</td><td class="num">685</td><td class="bad num">−33%</td></tr>
+          <tr><td><b>May</b></td><td class="num">1,153</td><td class="num"><b>612</b></td><td class="bad num"><b>−47%</b></td></tr>
+        </table>
+      </div>
+      <div>
+        <b style="font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)">Cohorted funnel (by G1 month)</b>
+        <table style="margin-top:6px">
+          <tr><th>Cohort</th><th>G1</th><th>G3 (G3/G1)</th><th>G4 to date (G4/G3)</th></tr>
+          <tr><td>Jan</td><td class="num">735</td><td class="num">464 (63.1%)</td><td class="num">169 (36.4%)</td></tr>
+          <tr><td>Feb</td><td class="num">681</td><td class="num">455 (66.8%)</td><td class="num">144 (31.7%)</td></tr>
+          <tr><td>Mar</td><td class="num">762</td><td class="num">518 (68.0%)</td><td class="num">183 (35.3%)</td></tr>
+          <tr><td>Apr</td><td class="num">685</td><td class="num">494 (72.1%)</td><td class="num">156 (31.6%)</td></tr>
+          <tr><td><b>May</b> <span class="pill o">maturing</span></td><td class="num">612</td><td class="num">450 (73.5%)</td><td class="num">72 (16.0% → ~34%)</td></tr>
+        </table>
+      </div>
+    </div>
+    <ul class="cl" style="margin-top:10px">
+      <li class="no"><b>The real problem is G1 volume — and it's accelerating.</b> YoY by cohort: Jan −16% → Apr −33% → May −47%; Apr+May cohorts −40% vs 2025. This is the planning-session headline.</li>
+      <li class="ok"><b>May paid = timing, confirmed.</b> Mature 2026 cohorts convert G4/G3 at ~33.7%; May sits at 16% only because it's young — 450 May trials × ~34% ≈ 152 total, 72 landed → <b>+70–86 G4s arrive in June</b>.</li>
+      <li class="ok"><b>Conversion is genuinely improving, not an artifact.</b> Cohorted trial rate climbed every month of 2026 (63% → 74%) vs 64% avg in 2025 — better capture has been masking the volume collapse.</li>
+      <li class="dot">🤖 <b>AI-generated guidebooks now drive 58% of trials</b> (vs ~1% in early 2025) and convert better than manual (Apr: 34.7% vs 29.0%).</li>
+    </ul>
+  </div></details>
+</section>
+
+<!-- ============ Q2 PRODUCT ============ -->
+<section id="product">
+  <h2><span class="n">3</span> Q2 Product — Highlights &amp; Lowlights</h2>
+  <div class="kicker">What shipped, what worked, what we're fixing.</div>
+
+  <div class="two">
+    <div class="card">
+      <h3 style="font-size:14.5px;margin-bottom:10px">✅ Highlights</h3>
+      <ul class="cl">
+        <li class="ok"><b>Pricing foundation complete</b> — tiered pricing live for 100% of new users; conversion held while new-cohort ARPU improved (+$6.69 / +40% vs Q1 baseline).</li>
+        <li class="ok"><b>Homepage Onboarding Widget — A/B success</b> — give-value-first widget (live guidebook preview before sign-up) beat the current homepage with a solid G1→G3 funnel (<a href="https://onboarding-flow-ab-test-results.vercel.app/">live results</a>). Trial-start +9.0pp (May 86.1% = record), sign-up→paid +2.0pp. Next: fix the ~45% contact-step drop.</li>
+        <li class="ok"><b>Churn prevention paying off</b> — reactivations +120%, downgrades at year-low, net churn 0.84% → 0.57% (May churn-neutral).</li>
+        <li class="ok"><b>Analytics &amp; retention infrastructure live</b> — A/B infra (data trustworthy; tests need longer runtimes), CX events logging, cancel/downgrade reasons. The infrastructure bed for every Q3 growth decision.</li>
+        <li class="run"><b>Webhook &amp; API Phase 1 in internal testing</b> — developer integration layer built; unlocks Phase 2 automation once validated.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:14.5px;margin-bottom:10px">⚠️ Lowlights / Areas for improvement</h3>
+      <ul class="cl">
+        <li class="no"><b>A/B testing quality — top issue.</b> Second pricing test in a row marred by execution bugs; SGP2 verdict revised to <b>statistical noise</b> (p≈0.58) → still <b>no data-backed pricing signal</b>. Plan: no Q3 pricing tests; long-term test on the new infra.</li>
+        <li class="no"><b>Airbnb / Booking.com scraping cost us G3s</b> — count unknown (failure tracking didn't fire either). Improved; <b>in-house scraper</b> in development. Vrbo: stronger bot prevention, investigation ongoing.</li>
+        <li class="no"><b>Website ownership crisis</b> — unclear technical ownership of web environments (no staging, testing directly in HubSpot) and of tracking implementation.</li>
+        <li class="no"><b>Clarity access broken</b> — transition mishap from Sivan; delayed session-recording analysis.</li>
+        <li class="run"><b>Projects still in development will be delivered by end of June, inside Q2</b> — Hub Redesign, Legacy Max, SMS Pricing, Webhooks Phase 2. To make that possible we deprioritised Tier 3 projects. 10DLC compliance launches the week of Jun 8.</li>
+      </ul>
+      <div class="note" style="margin-top:10px;background:var(--orange-bg);border-radius:8px;padding:10px 12px;color:var(--orange)"><b>Common thread — tracking infrastructure.</b> Several of the issues above trace back to tracking/instrumentation problems. Mitigated short-term by changing the Q3 launch strategies, but the problem needs a better, structural solution.</div>
+    </div>
+  </div>
+
+  <details style="margin-top:12px"><summary>Features delivered in Q2 — full status by tier (source: Q2 roadmap sheet)</summary><div class="inner">
+    <div class="grid g3" style="margin-top:10px">
+      <div>
+        <b style="font-size:13px">TIER 1</b>
+        <ul class="cl">
+          <li class="ok">Pricing Elasticity A/B Tests</li>
+          <li class="ok">Tiered Pricing — 100% new users</li>
+          <li class="ok">Homepage Onboarding Widget</li>
+          <li class="ok">A/B Test Infrastructure</li>
+          <li class="ok">CX Events Logging</li>
+          <li class="run">Hub Redesign — Guidebook Creation Paths + Hub UI + Content Management <span class="pill b">Jun 22</span></li>
+        </ul>
+      </div>
+      <div>
+        <b style="font-size:13px">TIER 2</b>
+        <ul class="cl">
+          <li class="ok">Technical Maintenance (Django)</li>
+          <li class="ok">Cancel / Downgrade Reasons</li>
+          <li class="run">Webhook &amp; API — Phase 1 <span class="pill b">internal testing</span></li>
+          <li class="run">Webhook &amp; API — Phase 2</li>
+          <li class="run">Legacy → Legacy Max</li>
+          <li class="run">SMS Pricing</li>
+          <li class="run">AI Quality Score &amp; chatbot auditing</li>
+          <li class="run">2WM 10DLC <span class="pill b">launching w/c Jun 8</span></li>
+          <li class="no">Train Chatbot <span class="pill gr">→ Q3</span></li>
+          <li class="no">Guest Registration Integration <span class="pill gr">→ Guest Reg V2, Q3</span></li>
+        </ul>
+      </div>
+      <div>
+        <b style="font-size:13px">TIER 3</b>
+        <ul class="cl">
+          <li class="ok">1 USD/GBP/EUR/AUD/CAD campaign</li>
+          <li class="no">Chatbot Escalation <span class="pill gr">→ Q3</span></li>
+          <li class="no">Store Tips <span class="pill gr">declined</span></li>
+          <li class="no">CRM Polishing <span class="pill gr">→ Q3 (CRM Enhancements)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:10px">Context: the start-of-Q2 strategy change removed ~40% of the original roadmap and wasted 3 developed projects; Tier 3 was sacrificed to deliver Tier 1–2 on time. Strategically relevant cuts moved to Q3.</div>
+  </div></details>
+</section>
+
+<!-- ============ Q3 ROADMAP ============ -->
+<section id="roadmap">
+  <h2><span class="n">4</span> Q3 Product Roadmap</h2>
+  <div class="kicker"><b>Goal:</b> product transformation — Free plan boosted by the new guidebook redesign; secondary focus on AI quick wins. <b>Note:</b> lower Q3 capacity (vacations). · <a href="https://docs.google.com/spreadsheets/d/19tnq1czcO28n9_5loIS01HWS31ul80Fu-uKu20HbuvQ/edit">Full roadmap sheet</a> — 14 PRDs ready.</div>
+
+  <div class="prio p1">
+    <h3>🥇 Priority 1 — Free Tier <span class="pill o">Market share</span></h3>
+    <div class="why">The Free plan becomes the acquisition engine and distribution channel — every guidebook view a brand impression, every limit and badge an upgrade lever, every guest a potential host.</div>
+    <ul>
+      <li><b>Limits &amp; Feature Gates</b> — 7 metered counters, soft limits 90/100% (events → Intercom/Pipedrive automated emails), 120% hard limit; 7 new gates; upgrade prompts + comparison modal; admin/CS config + audit log.</li>
+      <li><b>Free Tier Experience</b> — 4-tier pricing page; trial at Recommended → mandatory tier-choice → Free fallback with data preserved; tier-differentiated experience.</li>
+      <li><b>Referral Program &amp; Banner</b> — "Powered by Touch Stay" badge = referral banner ("Create your Touch Stay guidebook" + Try Now); always-on on Free, Tapfiliate opt-in for paid; new Refer a Friend menu.</li>
+    </ul>
+  </div>
+
+  <div class="prio p2">
+    <h3>🥈 Priority 2 — Guidebook Redesign <span class="pill b">Retention</span></h3>
+    <div class="why">From one-visit static wiki to a multi-visit, moment-based guest experience — no STR competitor ships this. PWA foundation for a future mobile app.</div>
+    <ul>
+      <li><b>Guidebook Redesign</b> — three modes: Home (timeline) / Info (wiki) / Assistant (chatbot + Contact Host); new orgs Timelines on, existing off with opt-out.</li>
+      <li><b>Timelines in Hub</b> — topics + message templates mapped to stay moments; time triggers via PMS or invitation dates; shared Timelines library.</li>
+      <li><b>Guest Registration V2</b> — 3-block compliance-grade registration; Stay entity in CRM; PMS push / CSV / webhook.</li>
+    </ul>
+  </div>
+
+  <div class="prio p3">
+    <h3>🥉 Priority 3 — Geo Expansion: Spanish &amp; French <span class="pill g">New MRR</span></h3>
+    <div class="why">English-only host journey is the hard blocker; i18n framework exists — this is configuration + content + per-locale SEO. <b>TAM:</b> France ~1.02M listings (#2 Airbnb market) + Spain ~320k ≈ <b>~750–800k host accounts</b>; LATAM ≈ $5B upside. Spain-vs-LATAM decision before build (Alina PPC validation).</div>
+    <ul><li>Website ES/FR + localized SEO · Hub UI with locale auto-detect · translated sign-up &amp; onboarding · core KB translation.</li></ul>
+  </div>
+
+  <div class="prio p4">
+    <h3>4️⃣ Priority 4 — AI Strategy <span class="pill b">Upsell / Retention</span></h3>
+    <div class="why">Quick wins completing the chatbot quality story; drives 2WM/SMS usage and gives larger clients an AI-generation reason to stay.</div>
+    <ul>
+      <li><b>Train Chatbot</b> <span class="pill g">Ready 4 Dev</span> — interview-style training + document uploads with AI validation.</li>
+      <li><b>Chatbot Escalation &amp; SMS Handoff</b> <span class="pill g">Ready 4 Dev</span> — frustration/keyword triggers, contact capture, SMS handoff, Resume AI.</li>
+      <li><b>MultiSource Guidebook Creation</b> — Duplicate vs Create new; PDF + Airbnb/Booking/<b>Vrbo (new scraper)</b> merged by the Conversational Builder; preview → feedback → regenerate/approve (50 rounds/day).</li>
+    </ul>
+  </div>
+
+  <div class="prio p5">
+    <h3>5️⃣ Priority 5 — Other Items <span class="pill gr">Polish riding the redesign</span></h3>
+    <ul>
+      <li><b>Hub Overview Dashboard</b> — new homepage: time-filtered metrics, check-ins, pending orders w/ Quick Approve, tasks, Common Questions (AI) with Fix Now, reviews, trial banner.</li>
+      <li><b>CRM Enhancements</b> · <b>Task Manager — Collaborative Work</b> (seat driver) · <b>WhatsApp Business Integration</b> (Meta Cloud API).</li>
+    </ul>
+  </div>
+
+  <details><summary>Moonshot backlog — Q4 Gambit</summary><div class="inner">
+    <p style="font-size:13.5px;margin-top:8px"><b>AI Assistants in the new Hub redesign</b> — dialed-down <a href="https://touchstay.atlassian.net/wiki/spaces/touchstay/pages/1086717953/Virtual+Property+Management+Team+-+AI+Upselling">Virtual Property Management Team</a>: specialised assistants embedded in the redesigned Hub (guidebook, front-desk, integrations, store, ops) wrapping complex features into conversational personas → less settings friction, feature discovery, tier upgrades (<b>ARPU +25%</b> upsell target). Long-term bet: TS becomes the operating system for STR management.</p>
+  </div></details>
+
+  <div class="card" style="margin-top:12px">
+    <h3 style="font-size:14px;margin-bottom:6px">Monetisation levers active in Q3</h3>
+    <ul class="cl">
+      <li class="dot"><b>Main focus: Free → Paid motion</b> — limit-triggered prompts (90/100% soft, 120% hard), feature gates, badge removal, trial → tier-choice flow.</li>
+      <li class="dot"><b>Paid tier simplification: 2 plans — Starter &amp; Recommended</b> — far easier benefit differentiation (PMS sync, Timeline triggers, contact collection, AI chatbot define the step-up).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ BUDGET ============ -->
+<section id="budget">
+  <h2><span class="n">5</span> Budget Discussion</h2>
+  <div class="kicker">MRR &amp; EBITDA goals vs results · MRR MoM rate · the Free-plan effect. Prepared for the sync with Daniela.</div>
+
+  <div class="grid g3">
+    <div class="card kpi"><div class="lbl">MRR vs plan</div><div class="val warn">−5.7%</div><div class="ctx">$242.5k vs $257.1k = <b>−$14.6k/mo</b>, gap widening. At +$2.1k/mo net movement, pure catch-up ≈ 7 months.</div></div>
+    <div class="card kpi"><div class="lbl">EBITDA vs plan</div><div class="val warn">−14.2%</div><div class="ctx">$101.8k vs $118.6k. Costs $8.8k <i>below</i> plan — <b>the miss is all revenue</b>. Gap narrowing monthly.</div></div>
+    <div class="card kpi"><div class="lbl">MRR MoM rate</div><div class="val">~0.8%</div><div class="ctx">Q2 avg (May best at +1.18%) vs ~2% assumed in plan. Proposed replan basis: <b>1–1.5%/mo</b>.</div></div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <h3 style="font-size:14px;margin-bottom:6px">Why Q3 dips before the Free-plan flywheel turns</h3>
+    <ul class="cl">
+      <li class="dot"><b>G4 cannibalisation:</b> with Free as the trial fallback, part of today's ~166 paid/mo parks on Free. New MRR takes the hit immediately.</li>
+      <li class="dot"><b>Upgrade pressure lags:</b> limits/gates bite only after usage accumulates — Free→Starter MRR arrives weeks-to-months post-launch.</li>
+      <li class="dot"><b>Flywheel scales with base size:</b> badge referrals grow with live Free guidebooks, which start near zero — compounding is Q4+, not Q3.</li>
+      <li class="dot"><b>Landing on a soft funnel:</b> sign-ups in YoY free fall (May −47% vs 2025) + lower Q3 capacity (vacations).</li>
+      <li class="dot"><b>Offsets:</b> tiered ARPU +25%, trial churn converted into future pipeline, reactivations at year-high, Legacy Max protecting the base.</li>
+    </ul>
+  </div>
+
+  <div class="ask">
+    <b>RECOMMENDATION — replan H2 MRR targets:</b>
+    <ol style="margin:10px 0 0 20px;font-size:13.5px;line-height:1.7">
+      <li><b>Remodel H2 at 1–1.5% monthly MRR growth</b> (not ~2%), explicitly pricing in the Free plan — today we don't know how hard Free hits G4s or how fast Free users convert, so the model needs a Q3 dip with later recovery, not a straight line.</li>
+      <li><b>Free-plan data closes the unknowns:</b> after launch we'll see the G4 dip, Free→Paid conversion rate &amp; period, and — toward end of Q3 — the flywheel. (Instrumented via Trial→Free, Free→Paid with time-on-Free, and Referral Account Created audit events.)</li>
+      <li><b>Hold the EBITDA line, not the MRR line</b> — the cost base ($190.6k/mo) is the lever already working; commit to EBITDA targets through the dip so the Free bet isn't killed mid-curve.</li>
+      <li><b>Score Q3 on leading indicators</b> — Free sign-ups, Free→paid %, badge-referral G1s, time-to-first-limit — MRR as the lagging measure; judge the flywheel at the 90-day review.</li>
+    </ol>
+  </div>
+
+  <div class="note" style="margin-top:10px">Per template: quarterly forecast update prepared with the financial controller (Daniela); changes require board approval post-alignment.</div>
+</section>
+
+<div class="foot">
+  Prepared by Catalin Adam · Jun 2026 · Sources: <a href="https://ts-q2-kpi-analysis.vercel.app/">Q2 vs Q1 KPI analysis</a> · TS - Q3 - 26 Strategic Alignment (Notion) · Q2/Q3 roadmap sheets · Q3 PRDs (Confluence) · Self-contained file, no external scripts.
+</div>
+
+</div>
+
+<script>
+  const links=[...document.querySelectorAll('nav.toc a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  addEventListener('scroll',()=>{
+    let i=secs.findLastIndex(s=>s&&s.getBoundingClientRect().top<120);
+    if(i<0)i=0;
+    links.forEach((a,j)=>a.classList.toggle('hot',j===i));
+  },{passive:true});
+</script>
+</body>
+</html>

@@ -92,6 +92,7 @@
   <a href="#numbers">Q2 Business Numbers</a>
   <a href="#product">Q2 Product Hi/Lo</a>
   <a href="#roadmap">Q3 Roadmap</a>
+  <a href="#moonshot">Moonshot</a>
   <a href="#budget">Budget Discussion</a>
 </div></nav>
 
@@ -100,8 +101,6 @@
 <!-- ============ TLDR ============ -->
 <section id="tldr">
   <h2><span class="n">1</span> TL;DR</h2>
-  <div class="kicker">Five facts, one decision. Everything below is supporting detail.</div>
-
   <div class="grid g4">
     <div class="card kpi"><div class="lbl">EBITDA Q2 TD</div><div class="val good">$101.8k</div><div class="ctx">vs $27.5k Q1 · margin 3.8% → <b>21.1%</b> · still <span class="bad">−14.2% vs plan</span></div></div>
     <div class="card kpi"><div class="lbl">MRR (end May)</div><div class="val">$242.5k</div><div class="ctx">grew every Q2 month · May +1.16% best of 2026 · <span class="bad">−5.7% vs plan</span>, gap widening</div></div>
@@ -110,15 +109,19 @@
   </div>
 
   <div class="card" style="margin-top:12px">
-    <p style="font-size:14.5px;font-weight:700;margin-bottom:14px;line-height:1.55">The engine is improving — conversion +2pp, ARPU +25%, May churn-neutral.<br>The constraint is volume.<br>Q3 we execute the two strategic bets — <span style="color:var(--accent)">Free plan</span> and <span style="color:var(--accent)">Guidebook Redesign</span> — and the H2 model needs to reflect what those bets cost before they pay.</p>
+    <div style="padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px">
+      <p style="font-size:15.5px;font-weight:700">The engine is improving — <span class="good">conversion +2pp · ARPU +25% · May churn-neutral</span>.</p>
+      <p style="font-size:15.5px;font-weight:800;margin-top:4px">The constraint is <span class="bad">volume</span>.</p>
+      <p style="font-size:13.5px;color:var(--muted);margin-top:8px">Q3 we execute the two strategic bets — <b style="color:var(--accent)">Free plan</b> and <b style="color:var(--accent)">Guidebook Redesign</b> — and the H2 model needs to reflect what those bets cost before they pay.</p>
+    </div>
     <div class="tl"><b class="h">1 · Profit rebuilt — the plan miss is all revenue</b>
       <p>EBITDA $101.8k Q2 TD vs $118.6k plan; costs run $8.8k <i>below</i> plan (−$39.8k/mo vs Q1). MRR is the only gap.</p></div>
     <div class="tl"><b class="h">2 · Conversion up, volume down</b>
       <p><span class="good"><b>Up:</b></span> cohorted trial rate 63% → 74% across 2026; May's low paid count was timing — <b>+70–86 G4s land in June</b>.</p>
       <p style="margin-top:5px"><span class="bad"><b>Down:</b></span> G1 sign-ups accelerating away — Jan −16% → Apr −33% → <b class="bad">May −47% YoY</b> (612 vs 1,153). Better conversion has been masking it.</p></div>
-    <div class="tl"><b class="h">3 · Churn: gross worse, net better</b>
-      <p><span class="bad"><b>Bad:</b></span> gross MRR churn 1.59% → 1.90%/mo, concentrated — ≥£100 accounts are 3% of churned logos but <b>32% of churned MRR</b> (a CS save motion, not a volume problem).</p>
-      <p style="margin-top:5px"><span class="good"><b>Good:</b></span> upgrades +18% and reactivations +120% pushed net churn 0.84% → 0.57%; <b>May closed churn-neutral</b>.</p></div>
+    <div class="tl"><b class="h">3 · Churn: net better, gross worse</b>
+      <p><span class="good"><b>Good:</b></span> upgrades +18% and reactivations +120% pushed net churn 0.84% → 0.57%; <b>May closed churn-neutral</b>.</p>
+      <p style="margin-top:5px"><span class="bad"><b>Bad:</b></span> gross MRR churn 1.59% → 1.90%/mo, concentrated — ≥£100 accounts are 3% of churned logos but <b>32% of churned MRR</b> (a CS save motion, not a volume problem).</p></div>
     <div class="tl"><b class="h">4 · Delivered on time, despite the start-of-quarter pivot</b>
       <p>The quarter began with a strategy reset, not the roadmap we had planned. Pricing &amp; analytics foundation shipped on time; Tier 3 deferred to protect Tier 1–2 commitments.</p></div>
     <div class="tl"><b class="h">5 · Q3 = Free Tier + Guidebook Redesign</b>
@@ -258,8 +261,19 @@
   <div class="card" style="margin-top:12px">
     <h3 style="font-size:14px;margin-bottom:8px">🛠️ What we're doing about declining G1s &amp; visitors</h3>
     <ul class="cl">
-      <li class="dot"><b>G1 conversion — new hero section + homepage/onboarding redesign:</b> the onboarding widget A/B already shows a <b>~+30% G1 lift</b> (<a href="https://onboarding-flow-ab-test-results.vercel.app/">live results</a>); it rolls out as the new hero section, with the full <b>website redesign on the marketing roadmap</b> carrying it across the site.</li>
-      <li class="dot"><b>Visitors — product levers land next quarter:</b> the <b>Free plan</b> (badge referral flywheel + free-intent demand) and <b>Geo Expansion ES/FR</b> (new locale SEO/PPC markets) are our traffic plays for Q3. Beyond those, traffic is a marketing lever — the Q3 marketing plan is the missing piece (and a required input for the H2 model).</li>
+      <li class="dot"><b>G1 conversion — new hero section + homepage/onboarding redesign:</b>
+        <ul style="margin:4px 0 2px 18px;list-style:disc">
+          <li>The onboarding widget A/B already shows a <b>~+30% G1 lift</b> (<a href="https://onboarding-flow-ab-test-results.vercel.app/">live results</a>).</li>
+          <li>It rolls out as the <b>new hero section</b> on the homepage.</li>
+          <li>The full <b>website redesign on the marketing roadmap</b> carries it across the site.</li>
+        </ul>
+      </li>
+      <li class="dot"><b>Visitors — product levers land next quarter:</b>
+        <ul style="margin:4px 0 2px 18px;list-style:disc">
+          <li><b>Free plan</b> — badge referral flywheel + free-intent demand.</li>
+          <li><b>Geo Expansion ES/FR</b> — new locale SEO/PPC markets.</li>
+        </ul>
+      </li>
     </ul>
   </div>
 </section>
@@ -385,10 +399,6 @@
     </ul>
   </div>
 
-  <details><summary>Moonshot backlog — Q4 Gambit</summary><div class="inner">
-    <p style="font-size:13.5px;margin-top:8px"><b>AI Assistants in the new Hub redesign</b> — dialed-down <a href="https://touchstay.atlassian.net/wiki/spaces/touchstay/pages/1086717953/Virtual+Property+Management+Team+-+AI+Upselling">Virtual Property Management Team</a>: specialised assistants embedded in the redesigned Hub (guidebook, front-desk, integrations, store, ops) wrapping complex features into conversational personas → less settings friction, feature discovery, tier upgrades (<b>ARPU +25%</b> upsell target). Long-term bet: TS becomes the operating system for STR management.</p>
-  </div></details>
-
   <div class="card" style="margin-top:12px">
     <h3 style="font-size:14px;margin-bottom:6px">Monetisation levers active in Q3</h3>
     <ul class="cl">
@@ -398,10 +408,23 @@
   </div>
 </section>
 
+<!-- ============ MOONSHOT ============ -->
+<section id="moonshot">
+  <h2><span class="n">5</span> Moonshot Backlog — Q4 Gambit</h2>
+  <div class="kicker"><b>AI Assistants in the new Hub redesign</b> — dialed-down <a href="https://touchstay.atlassian.net/wiki/spaces/touchstay/pages/1086717953/Virtual+Property+Management+Team+-+AI+Upselling">Virtual Property Management Team — AI Upselling</a></div>
+  <div class="card">
+    <ul class="cl">
+      <li class="dot"><b>Specialised AI assistants embedded in the redesigned Hub</b> (instead of a full agentic interface): guidebook assistant (creation &amp; content) · front-desk (guest messaging, CRM, chatbot) · integrations helper · store salesman · ops lead.</li>
+      <li class="dot"><b>Complex features wrapped into conversational personas</b> → less settings friction, more feature discovery + tier upgrades (<b>ARPU +25%</b> upsell target).</li>
+      <li class="dot"><b>Long-term bet unchanged:</b> TS becomes the operating system for STR management.</li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ BUDGET ============ -->
 <section id="budget">
-  <h2><span class="n">5</span> Budget Discussion</h2>
-  <div class="kicker">MRR &amp; EBITDA goals vs results · MRR MoM rate · the Free-plan effect. Prepared for the sync with Daniela.</div>
+  <h2><span class="n">6</span> Budget Discussion</h2>
+  <div class="kicker">MRR &amp; EBITDA goals vs results · MRR MoM rate · the Free-plan effect.</div>
 
   <div class="grid g3">
     <div class="card kpi"><div class="lbl">MRR vs plan</div><div class="val warn">−5.7%</div><div class="ctx">$242.5k vs $257.1k = <b>−$14.6k/mo</b>, gap widening. At +$2.1k/mo net movement, pure catch-up ≈ 7 months.</div></div>
@@ -425,19 +448,24 @@
     <b>RECOMMENDATION — align the H2 MRR model with the Free-plan strategy:</b>
     <ol style="margin:10px 0 0 20px;font-size:13.5px;line-height:1.7">
       <li><b>Remodel H2 at 1–1.5% monthly MRR growth</b> (not ~2%) — the model needs a Q3 dip with later recovery, not a straight line.</li>
-      <li><b>Why 1–1.5%, and how it firms up:</b> funnel &amp; churn improvements alone support ~2%/mo (if volumes don't decline further); the Free plan adds a drag we can't quantify pre-launch (G4 cannibalisation, conversion lag), so we hold a 0.5–1pp buffer. After launch, the specced audit events (Trial→Free, Free→Paid with time-on-Free, Referral Account Created) reveal the G4 dip, the Free→Paid rate &amp; period and — toward end of Q3 — the flywheel; the model is narrowed at the 90-day review.</li>
+      <li><b>Why 1–1.5%, and how it firms up:</b>
+        <ul style="margin:4px 0 2px 18px;list-style:disc">
+          <li>Funnel &amp; churn improvements alone support ~2%/mo (if volumes don't decline further).</li>
+          <li>The Free plan adds a drag we can't quantify pre-launch (G4 cannibalisation, conversion lag) → we hold a <b>0.5–1pp buffer</b>.</li>
+          <li>After launch, the audit events (Trial→Free, Free→Paid with time-on-Free, Referral Account Created) reveal the G4 dip, the Free→Paid rate &amp; period and — toward end of Q3 — the flywheel.</li>
+          <li>The model is narrowed at the <b>90-day review</b>.</li>
+        </ul>
+      </li>
       <li><b>Hold the EBITDA line, not the MRR line</b> — the cost base ($190.6k/mo) is the lever already working; commit to EBITDA targets through the dip so the Free bet isn't killed mid-curve.</li>
       <li><b>Score Q3 on leading indicators</b> — Free sign-ups, Free→paid %, badge-referral G1s, time-to-first-limit — MRR as the lagging measure; judge the flywheel at the 90-day review.</li>
     </ol>
   </div>
 
-  <div class="note" style="margin-top:10px"><b>Free is a volume lever that compounds from Q4.</b> Near-term traffic (May: 2026 low, G1 −47% YoY) is not a product lever — it needs a Q3 marketing plan, which is also a required input for finalizing the H2 model. Until that plan exists, Free is our only volume bet.</div>
+  <div class="note" style="margin-top:10px">Per template: quarterly forecast update prepared with the financial controller (Daniela); changes require board approval post-alignment.</div>
   <div class="note" style="margin-top:10px">Per template: quarterly forecast update prepared with the financial controller (Daniela); changes require board approval post-alignment.</div>
 </section>
 
-<div class="foot">
-  Prepared by Catalin Adam · Jun 2026 · Sources: <a href="https://ts-q2-kpi-analysis.vercel.app/">Q2 vs Q1 KPI analysis</a> · TS - Q3 - 26 Strategic Alignment (Notion) · Q2/Q3 roadmap sheets · Q3 PRDs (Confluence) · Self-contained file, no external scripts.
-</div>
+
 
 </div>
 

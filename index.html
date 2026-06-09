@@ -123,13 +123,13 @@
         <li>sign-up→trial (G1→G3) <b>68% → 86%</b></li>
         <li>trial→paid (G3→G4) holding <b>~33%</b></li>
       </ul>
-      <p style="margin-top:5px"><span class="bad"><b>Down:</b></span> the real problem is <b>traffic</b> — web visitors are falling (~46k → ~29k Jan→May), which drags G1 sign-ups down <b class="bad">−47% YoY in May</b> (612 vs 1,153) despite the better conversion. This is a traffic problem, not a funnel one.</p>
-      <p style="margin-top:5px"><span style="color:var(--blue)"><b>But:</b></span> the traffic we still have is converting well — rates rose at every step — so the <b>quality of remaining traffic is holding</b>. Volume is the bottleneck, not intent.</p></div>
+      <p style="margin-top:5px"><span class="bad"><b>Down:</b></span> the real problem is <b>traffic</b> — visitors fell ~46k → ~29k (Jan→May), dragging G1 sign-ups <b class="bad">−47% YoY in May</b> (612 vs 1,153). A traffic problem, not a funnel one.</p>
+      <p style="margin-top:5px"><span style="color:var(--blue)"><b>But:</b></span> the visitors we do get convert better than ever — <b>quality is holding</b>. Volume is the bottleneck, not intent.</p></div>
     <div class="tl"><b class="h">3 · Churn: net better, gross worse</b>
       <p><span class="good"><b>Good:</b></span> upgrades +18% and intensified churn-prevention (reactivations at a May year-high, partly seasonal) pushed net churn 0.84% → 0.57%; <b>May closed churn-neutral</b>.</p>
-      <p style="margin-top:5px"><span class="bad"><b>Bad:</b></span> the real signal is the gross trend — churn is intensifying (1.59% → 1.90%/mo). Mostly small accounts leave (median churned account <b>$9</b>, below ARPU); the <b>$ loss is concentrated</b> in a thin tail of 9 large churns ($109–396) = <b>32% of churned MRR</b> — a CS save motion, not a volume problem.</p></div>
-    <div class="tl"><b class="h">4 · The tiering worked — and the team delivered through the change</b>
-      <p>A strategy reset at the start of the quarter pushed the roadmap back, so we cut some Tier 3 work to absorb the later start. The tiered prioritisation did its job — Tier 1–2 shipped on time (pricing &amp; analytics foundation) — and the team executed excellently through all the changes.</p></div>
+      <p style="margin-top:5px"><span class="bad"><b>Bad:</b></span> gross churn is intensifying (1.59% → 1.90%/mo) — the real signal. Mostly small accounts leave (median <b>$9</b>), but 9 large churns ($109–396) drive <b>32% of lost MRR</b> — a CS save motion, not a volume problem.</p></div>
+    <div class="tl"><b class="h">4 · The project priority tiering worked</b>
+      <p>A late start cost us some Tier 3 work — but Tier 1–2 shipped on time and the team executed excellently through the change.</p></div>
     <div class="tl"><b class="h">5 · Q3 = Free Tier + Guidebook Redesign</b>
       <p>Market-share bet (Free as acquisition engine) + retention bet (moment-based guest experience no STR competitor has). PRDs ready across the active roadmap; lower capacity (vacations).</p></div>
     <div class="note" style="margin-top:10px"><b>Decision for this meeting:</b> align the H2 MRR model with the Free-plan strategy — recommendation in <a href="#budget">Budget Discussion ↓</a></div>
@@ -295,7 +295,7 @@
       <h3 style="font-size:14.5px;margin-bottom:10px">✅ Highlights</h3>
       <ul class="cl">
         <li class="ok"><b>Pricing foundation complete</b> — tiered pricing live for 100% of new users; conversion held while new-user ARPU improved <b>+25%</b> ($16.7 → $20.9/mo, +$4.2).</li>
-        <li class="ok"><b>Homepage Onboarding Widget — A/B success</b> — give-value-first widget (live guidebook preview before sign-up) beat the current homepage with a solid G1→G3 funnel (<a href="https://onboarding-flow-ab-test-results.vercel.app/">live results</a>). Trial-start +9.0pp (May 86.1% = record), sign-up→paid +2.0pp. Next: fix the ~45% contact-step drop.</li>
+        <li class="ok"><b>Homepage Onboarding Widget — A/B success</b> — live guidebook preview before sign-up beat the current homepage (<a href="https://onboarding-flow-ab-test-results.vercel.app/">live results</a>). Trial-start +9.0pp (May 86.1% record), sign-up→paid +2.0pp. Next: fix the ~45% contact-step drop.</li>
         <li class="ok"><b>Churn prevention paying off</b> — intensified save activity with real wins; reactivations at a May year-high (partly seasonal), downgrades at year-low, net churn 0.84% → 0.57% (May churn-neutral).</li>
         <li class="ok"><b>Analytics &amp; retention infrastructure live</b> — A/B infra (data trustworthy; tests need longer runtimes), CX events logging, cancel/downgrade reasons. The infrastructure bed for every Q3 growth decision.</li>
         <li class="run"><b>Webhook &amp; API Phase 1 in internal testing</b> — developer integration layer built; unlocks Phase 2 automation once validated.</li>
@@ -364,7 +364,7 @@
 
   <div class="prio p1">
     <h3>🥇 Priority 1 — Free Tier <span class="pill o">Market share</span></h3>
-    <div class="why">The Free plan becomes our acquisition and traffic engine first — every Free guidebook view a brand impression, every guest a potential host, the badge a referral flywheel; limits, gates and upgrade prompts are the monetisation mechanics beneath it.</div>
+    <div class="why">Free is the acquisition engine first — every guidebook view a brand impression, every guest a potential host, the badge a referral flywheel. Limits, gates and prompts monetise underneath.</div>
     <ul>
       <li><b>Limits &amp; Feature Gates</b> — 7 metered counters; <b>90%</b> soft warning, <b>100%</b> = email nudge via Intercom/Pipedrive (access <i>not</i> blocked), <b>130%</b> = hard pause (restored on upgrade/reset); 7 new gates; upgrade prompts + comparison modal; admin/CS config + audit log.</li>
       <li><b>Free Tier Experience</b> — 4-tier pricing page; trial at Recommended → mandatory tier-choice → Free fallback with data preserved; tier-differentiated experience.</li>
@@ -453,7 +453,6 @@
     </ol>
   </div>
 
-  <div class="note" style="margin-top:10px">Per template: quarterly forecast update prepared with the financial controller (Daniela); changes require board approval post-alignment.</div>
   <div class="note" style="margin-top:10px">Per template: quarterly forecast update prepared with the financial controller (Daniela); changes require board approval post-alignment.</div>
 </section>
 

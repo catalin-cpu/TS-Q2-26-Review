@@ -415,6 +415,14 @@
   </div>
 
   <div class="card" style="margin-top:12px">
+    <h3 style="font-size:14px;margin-bottom:6px">📊 Budget vs actual — the shape of the year</h3>
+    <p class="note">2026 monthly, $k. <b style="color:#f5a623">Orange</b> = actuals (Jan–May) · <b style="color:#2e7d32">green</b> = current (NEW) budget · <b style="color:#86b0d6">blue dashed</b> = original Q1 budget. Actuals track the budget line; the plan itself builds in a <b>Q3 EBITDA dip</b> before the H2 recovery.</p>
+    <img src="ts-revenue-ebitda.png" alt="TS — Revenue vs KPI EBITDA, 2026 ($k)" style="width:100%;max-width:920px;display:block;margin:12px auto 0;border:1px solid #e2e7f0;border-radius:8px">
+    <img src="ts-ebitda-budget.png" alt="TS — KPI EBITDA Actual vs Budget, 2026 ($k)" style="width:100%;max-width:920px;display:block;margin:12px auto 0;border:1px solid #e2e7f0;border-radius:8px">
+    <div class="note" style="margin-top:8px"><b>Source:</b> itrinity KPI report — TS budget series (Charts tab), Jan–Dec 2026.</div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
     <h3 style="font-size:14px;margin-bottom:6px">Why Q3 dips before the Free-plan flywheel turns</h3>
     <ul class="cl">
       <li class="dot"><b>G4 cannibalisation:</b> with Free as the trial fallback, part of today's ~166 paid/mo parks on Free. New MRR takes the hit immediately.</li>
@@ -436,28 +444,4 @@
           <li>The Free plan adds a drag we can't quantify pre-launch (G4 cannibalisation, conversion lag) → we hold a <b>0.5–1pp buffer</b>.</li>
           <li>After launch, the audit events (Trial→Free, Free→Paid with time-on-Free, Referral Account Created) reveal the G4 dip, the Free→Paid rate &amp; period and — toward end of Q3 — the flywheel.</li>
           <li>The model is narrowed at the <b>90-day review</b>.</li>
-        </ul>
-      </li>
-      <li><b>Hold the EBITDA line, not the MRR line</b> — the cost base ($190.6k/mo) is the lever already working; commit to EBITDA targets through the dip so the Free bet isn't killed mid-curve.</li>
-      <li><b>Score Q3 on leading indicators</b> — Free sign-ups, Free→paid %, badge-referral G1s, time-to-first-limit — MRR as the lagging measure; judge the flywheel at the 90-day review.</li>
-    </ol>
-  </div>
-
-  <div class="note" style="margin-top:10px">Per template: quarterly forecast update prepared with the financial controller (Daniela); changes require board approval post-alignment.</div>
-</section>
-
-
-
-</div>
-
-<script>
-  const links=[...document.querySelectorAll('nav.toc a')];
-  const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
-  addEventListener('scroll',()=>{
-    let i=secs.findLastIndex(s=>s&&s.getBoundingClientRect().top<120);
-    if(i<0)i=0;
-    links.forEach((a,j)=>a.classList.toggle('hot',j===i));
-  },{passive:true});
-</script>
-</body>
-</html>
+        
